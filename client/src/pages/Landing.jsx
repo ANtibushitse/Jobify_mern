@@ -1,14 +1,22 @@
 import main from '../assets/images/main.svg'
-import { Logo } from '../components'
+import Wrapper from '../assets/wrappers/LandingPage'
+import { Logo } from '../components/'
+
+/**
+ * Landing is a function that returns a div with a nav, a div with a class of container, a div with a
+ * class of info, a h1, a p, and a button
+ * 
+ * @return A function that returns a JSX element
+ */
 const Landing = () => {
+
   return (
     <>
-      <main>
+      <Wrapper>
         <nav>
           <Logo />
         </nav>
         <div className='container page'>
-          {/* info */}
           <div className='info'>
             <h1>
               job <span>tracking</span> app
@@ -25,7 +33,7 @@ const Landing = () => {
           </div>
           <img src={main} alt='job hunt' className='img main-img' />
         </div>
-      </main>
+      </Wrapper>
     </>
   )
 }
