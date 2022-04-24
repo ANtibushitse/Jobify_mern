@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "react-router": "^6.3.0",
+    "styled-components": "^5.3.5"
+  }
+}
