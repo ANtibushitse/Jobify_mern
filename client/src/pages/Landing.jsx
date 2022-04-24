@@ -1,6 +1,7 @@
 import main from '../assets/images/main.svg'
 import Wrapper from '../assets/wrappers/LandingPage'
 import { Logo } from '../components/'
+import { Link } from 'react-router-dom'
 
 /**
  * Landing is a function that returns a div with a nav, a div with a class of container, a div with a
@@ -14,7 +15,11 @@ const Landing = () => {
     <>
       <Wrapper>
         <nav>
-          <Logo />
+          <nav>
+            <Link to="/">Dashboard</Link>
+            <Link to="/register">Register</Link>
+            <Link to="/landing">Home</Link>
+          </nav>
         </nav>
         <div className='container page'>
           <div className='info'>
@@ -27,9 +32,9 @@ const Landing = () => {
               quinoa lo-fi tote bag adaptogen everyday carry meggings +1 brunch
               narwhal.
             </p>
-            <button className='btn btn-hero'>
+            <Link to="/register" className='btn btn-hero'>
               Login/Register
-            </button>
+            </Link>
           </div>
           <img src={main} alt='job hunt' className='img main-img' />
         </div>
