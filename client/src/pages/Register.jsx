@@ -43,7 +43,7 @@ function Register() {
                 {/* email field */}
                 <FormRow type="email" name="email" label="email" value={values.email} onChange={handleChange}/>
                 {/* password field */}
-                <FormRow type="password" name="password" label="password" value={values.password} onChange={handleChange}/>
+                <FormRow type="password" name="password" label="password" value={values.password}onChange={handleChange}/>
                 <button type="submit" className="btn btn-block">
                     submit
                 </button>
