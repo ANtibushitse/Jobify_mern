@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Logo } from "../components";
+import {useState, useEffect} from "react";
+import {Logo} from "../components";
 import Wrapper from "../assets/wrappers/RegisterPage";
 // global context and useNavigate later
 /* Setting the initial state of the form. */
@@ -24,18 +24,18 @@ function Register() {
         console.log(e.target);
     };
 
-   /**
-    * The function onSubmit is called when the form is submitted
-    */
+    /**
+     * The function onSubmit is called when the form is submitted
+     */
     const onSubmit = (e) => {
         e.preventDefault();
         console.log(e.target);
     };
     return (
- /*  */
+        /*  */
         <Wrapper className="full-page">
             <form className="form" onSubmit={onSubmit}>
-                <Logo />
+                <Logo/>
                 <h3>Login</h3>
 
                 {/* name field */}
@@ -59,4 +59,5 @@ function Register() {
         </Wrapper>
     );
 }
-export default Register;    
+
+export default Register;
