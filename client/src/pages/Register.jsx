@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import {Logo} from "../components";
+import {Logo, FormRow} from "../components";
 import Wrapper from "../assets/wrappers/RegisterPage";
 // global context and useNavigate later
 /* Setting the initial state of the form. */
@@ -15,7 +15,7 @@ const initialState = {
 function Register() {
     const [values, setValues] = useState(initialState);
 
-    // global context and useNavigate later
+    // global statex and useNavigate later
 
     /**
      * A function that is called when the form is submitted.
@@ -39,19 +39,11 @@ function Register() {
                 <h3>Login</h3>
 
                 {/* name field */}
-                <div className="form-row">
-                    <label htmlFor="name" className="form-label">
-                        name
-                    </label>
-
-                    <input
-                        type="text"
-                        value={values.name}
-                        name="name"
-                        onChange={handleChange}
-                        className="form-input"
-                    />
-                </div>
+                <FormRow type="text" name="name" label="Name" value={values.name} onChange={handleChange}/>
+                {/* email field */}
+                <FormRow type="email" name="email" label="email" value={values.email} onChange={handleChange}/>
+                {/* password field */}
+                <FormRow type="password" name="password" label="password" value={values.password} onChange={handleChange}/>
                 <button type="submit" className="btn btn-block">
                     submit
                 </button>
