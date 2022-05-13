@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import {Logo, FormRow, Alert} from "../components";
 import Wrapper from "../assets/wrappers/RegisterPage";
+i
 // global context and useNavigate later
 /* Setting the initial state of the form. */
 
@@ -17,6 +18,7 @@ function Register() {
     /**
      * ToggleMember is a function that sets the value of isMember to the opposite of what it currently is
      */
+    const {isLoadinf, showAlert} = useAppContext();
     const ToggleMember = () => {
         setValues({...values, isMember: !values.isMember});
     }
@@ -45,7 +47,7 @@ function Register() {
                           label="Name"
                           value={values.name}
                           onChange={handleChange}/>)}
-                {values.showAlert && (<Alert/>)}
+                {showAlert && (<Alert/>)}
                 {/* email field */}
                 <FormRow type="email"
                          name="email"
