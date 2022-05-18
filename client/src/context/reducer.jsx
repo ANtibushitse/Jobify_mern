@@ -6,7 +6,7 @@ const reducer = (state, action) => {
       ...state,
       showAlert: true,
       alertType: 'danger',
-      alertText: 'Please provide all the required fields!',
+      alertText: 'Please fill in all the required fields!',
     };
   }
   throw new Error(`no such action':${action.type}`);
