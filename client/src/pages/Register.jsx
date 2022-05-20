@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useAppContext } from '../context/appContext';
 import { Logo, FormRow, Alert } from '../components';
 import Wrapper from '../assets/wrappers/RegisterPage';
-import { useAppContext } from '../context/appContext';
-//   global context and useNavigate later
+
+// global context and useNavigate later
 /* Setting the initial state of the form. */
 
 const initialState = {
@@ -10,43 +11,30 @@ const initialState = {
   email: '',
   password: '',
   isMember: true,
+  showAlert: false,
 };
 
 function Register() {
   const [values, setValues] = useState(initialState);
 
-  const { isLoading, showAlert, displayAlert } = useAppContext();
-
-  const state = useAppContext();
-  /**
-     * ToggleMember is a function that sets the value of isMember to
-     * the opposite of what it currently is.
-     */
+  const { showAlert, displayAlert } = useAppContext();
   const ToggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
   };
-    /**
-     * The handleChange function is used to
-     * update the state of the component
-     */
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
-
+  /**
+   * The function onSubmit is called when the form is submitted
+   */
   const onSubmit = (e) => {
     e.preventDefault();
-
-    /* Destructuring the values object and checking if any of
-         the values are empty. If they are empty,
-       it will display an alert. */
     const {
       name, email, password, isMember,
     } = values;
     if (!email || !password || (!isMember && !name)) {
       displayAlert();
-      return;
     }
-    console.log(values);
   };
   return (
     <Wrapper className="full-page">
@@ -58,13 +46,13 @@ function Register() {
          * then the FormRow component will be rendered.
          */}
         {!values.isMember && (
-        <FormRow
-          type="text"
-          name="name"
-          label="Name"
-          value={values.name}
-          onChange={handleChange}
-        />
+          <FormRow
+            type="text"
+            name="name"
+            label="Name"
+            value={values.name}
+            onChange={handleChange}
+          />
         )}
         {showAlert && <Alert />}
         {/* email field */}
