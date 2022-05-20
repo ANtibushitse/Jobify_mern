@@ -1,5 +1,5 @@
 function FormRow({
-  type, name, value, handleChange, labelText,
+  type, name, defaulvalue, handleChange, labelText,
 }) {
   return (
     <div className="form-row">
@@ -9,7 +9,7 @@ function FormRow({
 
       <input
         type={type}
-        value={value}
+        value={defaulvalue}
         name={name}
         onChange={handleChange}
         className="form-input"
