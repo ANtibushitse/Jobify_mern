@@ -25,7 +25,7 @@ export function AppProvider({ children }) {
     dispatch({ type: DISPLAY_ALERT });
   };
   return (
-    <AppContext.Provider value={{ ...state, dispatch }}>
+    <AppContext.Provider value={{ ...state, displayAlert, dispatch }}>
       {children}
     </AppContext.Provider>
   );
