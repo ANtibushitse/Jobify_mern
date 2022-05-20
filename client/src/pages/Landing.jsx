@@ -1,14 +1,7 @@
 import { Link } from 'react-router-dom';
 import main from '../assets/images/main.svg';
 import Wrapper from '../assets/wrappers/LandingPage';
-import { Logo } from '../components';
 
-/**
- * Landing is a function that returns a div with a nav, a div with a class of container, a div with a
- * class of info, a h1, a p, and a button
- *
- * @return A function that returns a JSX element
- */
 function Landing() {
   return (
     <Wrapper>
@@ -23,14 +16,12 @@ function Landing() {
         <div className="info">
           <h1>
             job
-            {' '}
             <span>tracking</span>
-            {' '}
             app
           </h1>
           <p>
-            I'm baby wayfarers hoodie next level taiyaki brooklyn cliche blue
-            bottle single-origin coffee chia. Aesthetic post-ironic venmo,
+            I &apos m baby wayfarers hoodie next level taiyaki brooklyn cliche
+            blue bottle single-origin coffee chia. Aesthetic post-ironic venmo,
             quinoa lo-fi tote bag adaptogen everyday carry meggings +1 brunch
             narwhal.
           </p>

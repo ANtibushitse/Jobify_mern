@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useAppContext } from '../context/appContext';
 import { Logo, FormRow, Alert } from '../components';
 import Wrapper from '../assets/wrappers/RegisterPage';
 
-i;
 // global context and useNavigate later
 /* Setting the initial state of the form. */
 
@@ -16,22 +16,25 @@ const initialState = {
 
 function Register() {
   const [values, setValues] = useState(initialState);
-  /**
-   * ToggleMember is a function that sets the value of isMember to the opposite of what it currently is
-   */
-  const { isLoadinf, showAlert } = useAppContext();
+
+  const { showAlert, displayAlert } = useAppContext();
   const ToggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
   };
   const handleChange = (e) => {
-    console.log(e.target);
+    setValues({ ...values, [e.target.name]: e.target.value });
   };
   /**
    * The function onSubmit is called when the form is submitted
    */
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    const {
+      name, email, password, isMember,
+    } = values;
+    if (!email || !password || (!isMember && !name)) {
+      displayAlert();
+    }
   };
   return (
     <Wrapper className="full-page">
