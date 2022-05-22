@@ -25,7 +25,7 @@
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix --ext .js,.jsx .",
+    "lint:fix": "eslint --fix  .",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx}'"
   },
   "eslintConfig": {
@@ -54,7 +54,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "husky": "^8.0.1",
+    "husky": "^7.0.0",
     "lint-staged": "^12.4.1"
   }
 }

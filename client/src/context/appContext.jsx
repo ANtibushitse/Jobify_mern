@@ -32,9 +32,13 @@ export function AppProvider({ children }) {
   };
 
   return (
-    <AppContext.Provider value={{
-      ...state, displayAlert, dispatch, clearAlert,
-    }}
+    <AppContext.Provider
+      value={{
+        ...state,
+        displayAlert,
+        dispatch,
+        clearAlert,
+      }}
     >
       {children}
     </AppContext.Provider>
