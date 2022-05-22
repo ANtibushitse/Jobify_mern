@@ -1,20 +1,32 @@
 import express from "express";
-import errorHandlerMiddleware from "./middleware/error-handler.js";
-import notFoundMiddleware from "./middleware/not-found.js";
 const app = express();
 import dotenv from "dotenv"
-import connectDB from "./db/connect.js";
 dotenv.config()
-// middleware
-notFoundMiddleware
-app.get("/",(req,res )=>{
-    throw new Error("error");
-    res.send("Hello World");
-},
 
-);
+//db authenticate usrer
+import connectDB from "./db/connect.js";
+//routers
+import authRouter from "./routes/authRoutes.js";
+import jobsRouter from "./routes/jobsRoutes.js";
+
+// middleware
+import errorHandlerMiddleware from "./middleware/error-handler.js";
+import notFoundMiddleware from "./middleware/not-found.js";
+notFoundMiddleware
+errorHandlerMiddleware
+
+app.use(express.json());
+
+app.get("/",(req,res )=>{
+    res.send("Hello World");
+},);
+app.use('/api/v1/auth', authRouter);  
+app.use('/api/v1/jobs', jobsRouter)
+
+
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware)
+
 const port = process.env.PORT || 5000;
 
 /**
