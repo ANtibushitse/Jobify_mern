@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-export const DISPLAY_ALERT = "SHOW_ALERT";
-=======
 export const DISPLAY_ALERT = 'SHOW_ALERT';
 export const CLEAR_ALERT = 'CLEAR_ALERT';
 
@@ -37,4 +34,3 @@ export const SHOW_STATS_BEGIN = 'SHOW_STATS_BEGIN';
 export const SHOW_STATS_SUCCESS = 'SHOW_STATS_SUCCESS';
 export const CLEAR_FILTERS = 'CLEAR_FILTERS';
 export const CHANGE_PAGE = 'CHANGE_PAGE';
->>>>>>> 751b223
