@@ -1,3 +1,4 @@
+
 import User from "../Models/User.js";
 
 
@@ -15,6 +16,7 @@ const register= async (req, res) => {
     } catch (error) {
         res.status(500).json({msg: 'There was an error Registering the user'});
     }
+
 }
 
 const login= async(req, res) => {
