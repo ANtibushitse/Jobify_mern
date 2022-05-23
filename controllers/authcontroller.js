@@ -1,6 +1,6 @@
 import User from "../Models/User.js";
 import { StatusCodes } from 'http-status-codes';
-import {	BadRequestError, NotFoundError } from '../errors/index.js';
+import { BadRequestError } from '../errors/index.js';
 
 
 
@@ -18,6 +18,9 @@ const register= async (req, res) => {
 		/* Creating a new user and returning the user object. */
 		const user = await User.create(name, email, password);
 		res.status(StatusCodes.OK).json({user});
+		if(!name || !email || !password) {
+				throw new BadRequestError( "Please provide all the required fields");
+		}
 }
 
 const login= async(req, res) => {
