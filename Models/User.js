@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-import  validator from "validator";
+import validator from "validator";
+/* Creating a schema for the user model. */
 const UserSchema = new mongoose.Schema({
     name: {
         type: String,
