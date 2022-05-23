@@ -2,7 +2,7 @@ import express from "express";
 const app = express();
 import dotenv from "dotenv"
 dotenv.config()
-
+import 'express-async-errors' 
 //db authenticate usrer
 import connectDB from "./db/connect.js";
 //routers
@@ -16,6 +16,7 @@ notFoundMiddleware
 errorHandlerMiddleware
 
 app.use(express.json());
+
 
 app.get("/",(req,res )=>{
     res.send("Hello World");

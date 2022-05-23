@@ -1,7 +1,6 @@
+import { StatusCodes } from 'http-status-codes';
 
 import User from "../Models/User.js";
-
-
 
 /**
  * It creates a new user in the database using the data from the request body
@@ -10,14 +9,9 @@ import User from "../Models/User.js";
  * @param res - The response object.
  * @param next - This is a function that we call when we want to move on to the next middleware.
  */
-const register= async (req, res, next) => {
-    try {
+const register= async (req, res) => {
         const user = await User.create(req.body);
-        res.status(201).json(user);
-    } catch (error) {
-       next(error);
-    }
-
+        res.status(StatusCodes.created).json({user});
 }
 
 const login= async(req, res) => {
