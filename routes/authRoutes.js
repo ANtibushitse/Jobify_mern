@@ -1,7 +1,7 @@
 import express from 'express'
-const router = express.Router()
+import {login, register, updateUser} from "../controllers/authcontroller.js";
 
-import { register, login,updateUser } from "../controllers/authcontroller.js";
+const router = express.Router()
 
 router.route('/register').post(register)
 router.route('/login').post(login)

@@ -1,20 +1,20 @@
 const createJob = async (req, res) => {
-    res.send('create job')
+		res.send('create job')
 }
 const getAllJobs = async (req, res) => {
-    res.send('Get all jobs')
-} 
+		res.send('Get all jobs')
+}
 const deleteJob = async (req, res) => {
-    res.send('delete job')
+		res.send('delete job')
 }
 const updateJob = async (req, res) => {
-    res.send(' job ipdated')
+		res.send(' job ipdated')
 }
 const showStats = async (req, res) => {
-    res.send('Show Stats')
+		res.send('Show Stats')
 }
 
 
-
-export {createJob,getAllJobs,deleteJob,updateJob, showStats
+export {
+		createJob, getAllJobs, deleteJob, updateJob, showStats
 }
