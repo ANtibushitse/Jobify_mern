@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import validator from "validator";
+import bcrypt from 'bcryptjs';
 /* Creating a schema for the user model. */
 const UserSchema = new mongoose.Schema({
 		name: {
@@ -39,10 +40,9 @@ const UserSchema = new mongoose.Schema({
 /* This is a middleware that is run before the user is saved to the database. It checks if the password
 has been modified and if it has, it hashes the password. */
 UserSchema.pre("save", async function (next) {
-		if (this.isModified("password")) {
-				this.password = await bcrypt.hash(this.password, 8);
-		}
-		next();
+		if (!this.isModified('password')) return
+		const salt = await bcrypt.genSalt(10)
+		this.password = await bcrypt.hash(this.password, salt)
 });
 
 export default mongoose.model("User", UserSchema);
