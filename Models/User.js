@@ -38,10 +38,11 @@ const UserSchema = new mongoose.Schema({
 });
 /* This is a middleware that is run before the user is saved to the database. It checks if the password
 has been modified and if it has, it hashes the password. */
-userSchema.pre("save", async function (next) {
+UserSchema.pre("save", async function (next) {
 		if (this.isModified("password")) {
 				this.password = await bcrypt.hash(this.password, 8);
 		}
 		next();
 });
+
 export default mongoose.model("User", UserSchema);

@@ -7,7 +7,6 @@ const errorHandlerMiddleware = (err, req, res, next) => {
 		}
 		if (err.name === 'ValidationError') {
 				defaultError.statusCode = StatusCodes.BAD_REQUEST
-
 				defaultError.msg = Object.values(err.errors)
 						.map((item) => item.message)
 						.join(',')
