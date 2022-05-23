@@ -3,3 +3,4 @@ yarn.lock
 package.json
 .vscode
 .idea
+.env
