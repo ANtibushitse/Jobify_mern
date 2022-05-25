@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import validator from "validator";
-
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 /* Creating a schema for the user model. */
 const UserSchema = new mongoose.Schema({
 	name: {
@@ -39,5 +40,17 @@ const UserSchema = new mongoose.Schema({
 });
 /* This is a middleware that is run before the user is saved to the database. It checks if the password
 has been modified and if it has, it hashes the password. */
+UserSchema.pre('save', async function () {
+	// console.log(this.modifiedPaths())
+	if (!this.isModified('password')) return
+	const salt = await bcrypt.genSalt(10)
+	this.password = await bcrypt.hash(this.password, salt)
+})
 
+//JWT schma
+/* This is a method that is used to create a JWT token. */
+UserSchema.methods.createJWT = function () {
+	return jwt.sign({ userId: this._id }, process.env.JWT_SECRET, 
+		{expiresIn: process.env.JWT_LIFETIME})
+}
 export default mongoose.model("User", UserSchema);
