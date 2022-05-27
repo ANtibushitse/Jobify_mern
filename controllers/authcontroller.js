@@ -28,10 +28,12 @@ const register= async (req, res) => {
 		location: user.location,
 	})
 
+
 		if(!name || !email || !password) {
-				throw new BadRequestError( "Please provide all the required fields");
+				throw new BadRequestError( "Veuillez Remplir tous les champs");
 		}
 }
+
 
 async function login(req, res) {
 	res.send('login user');

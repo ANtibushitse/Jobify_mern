@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from "dotenv"
 import 'express-async-errors'
+
+
 //db authenticate usrer
 import connectDB from "./db/connect.js";
 //routers
@@ -23,9 +25,13 @@ app.use(express.json());
 app.get("/", (req, res) => {
 		res.send("Hello World");
 },);
-app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/jobs', jobsRouter)
 
+/* Using the routes from the authRouter and jobsRouter files. */
+
+app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/jobs', jobsRouter);
+
+/* This is a middleware that will catch any errors that are thrown in the application. */
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware)
