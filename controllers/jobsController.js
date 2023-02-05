@@ -8,7 +8,7 @@ const deleteJob = async (req, res) => {
 		res.send('delete job')
 }
 const updateJob = async (req, res) => {
-		res.send(' job ipdated')
+		res.send(' job updated')
 }
 const showStats = async (req, res) => {
 		res.send('Show Stats')
