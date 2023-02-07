@@ -66,6 +66,7 @@ function Register() {
           type="password"
           name="password"
           label="password"
+          autocomplete="off"
           value={values.password}
           onChange={handleChange}
         />

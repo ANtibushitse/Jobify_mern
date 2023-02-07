@@ -6,8 +6,8 @@ import { DISPLAY_ALERT, CLEAR_ALERT } from './actions';
 const initialState = {
   isLoading: false,
   showAlert: true,
+  clearAlert: false,
   alertText: '',
-  alertType: '',
 };
 
 const AppContext = React.createContext(initialState);
