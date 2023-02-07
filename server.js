@@ -20,6 +20,7 @@ notFoundMiddleware
 errorHandlerMiddleware
 
 app.use(express.json());
+// this is a middleware that will parse the body of the request and will make it available on req.body
 
 
 app.get("/", (req, res) => {
